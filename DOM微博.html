@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>标题</title>
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	<style>
+		*{margin: 0;padding: 0}
+		#outer{width: 800px;background: #9c9c9c;border: #309c92;margin: 0 auto;}
+		#outer span{font-size: 20px;font-family: "微软雅黑";color: white;padding-left: 50px;}
+		#bt{margin-left: 40px;height: 40px;width: 500px;font-size: 20px;border: 1px solid black;font-family: "微软雅黑";margin-top: 20px;}
+		#nr{width: 500px;margin-left: 40px;margin-top: 10px;border: 1px solid black;font-size: 20px;font-family: "微软雅黑";}
+		#fb{width: 60px;height: 30px;margin-left: 576px;border-radius: 18px;}
+		#xsnr{font-size: 33px;font-family: "微软雅黑";padding-left: 50px;}
+	</style>
+</head>
+<body>
+	<div id="outer">
+		<span>标题</span><input type="text" name="" value="" id="bt"><br>
+		<span>内容</span><textarea name="" id="nr" cols="30" rows="10"></textarea><br>
+		<input type="button" name="" value="发布" id="fb">
+		<h1 id="xsnr">显示内容:</h1>
+	</div>
+	<script>
+		var outer=document.getElementById('outer');
+		var bt=document.getElementById('bt');
+		var nr=document.getElementById('nr');
+		var fb=document.getElementById('fb');
+		var xsnr=document.getElementById('xsnr');
+
+		fb.onclick=function(){
+			if (bt.value!=""&&nr.value!="") {
+				var bta=document.createElement("div");
+				var nra=document.createElement("div");
+				var newbt=document.createTextNode(bt.value);
+				var newnr=document.createTextNode(nr.value);
+				var sc=document.createElement("button");
+				bta.appendChild(newbt);
+				nra.appendChild(newnr);
+				sc.innerText="删除";
+				outer.appendChild(bta);
+				outer.appendChild(nra);
+				outer.appendChild(sc);
+				bta.style.backgroundColor="red";
+				bta.style.fontSize="30px";
+				nra.style.fontSize="20px";
+				nra.style.marginLeft="20px";
+				sc.onclick=function(){
+					outer.removeChild(bta);
+					outer.removeChild(nra);
+					outer.removeChild(sc);
+				}
+			}else{
+				alert("请输入信息");
+			}
+			bt.value="";
+			nr.value="";
+		}
+	</script>
+</body>
+</html>
